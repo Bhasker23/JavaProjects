@@ -31,6 +31,7 @@ public class RetriveData {
 				int standard = rs.getInt("class");
 				
 				System.out.println(roll + " "+ name + " "+ standard);
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
