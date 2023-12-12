@@ -22,7 +22,7 @@ public class InsertData {
 		int standard = sc.nextInt();
 		
 		
-		try {
+		try {	
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
