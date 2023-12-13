@@ -1,0 +1,13 @@
+
+
+##  Steps to connect JDBC with DB.
+
+-> Register Driver related class.
+
+-> Get the connection.
+
+-> Create Statement.
+
+-> Execute Query.
+
+-> Close the connection.
