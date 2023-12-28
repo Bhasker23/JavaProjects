@@ -1,7 +1,7 @@
 package com.studentapp.service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,7 +42,7 @@ public class StudentServiceimpl implements StudentServiceIntr {
 
 	@Override
 	public Student updateStudent(Integer roll, Integer marks) {
-		
+
 		if (!stRepo.findById(roll).isPresent()) {
 			throw new StudentException("Student is not present with given roll no. " + roll);
 		}
@@ -53,12 +53,38 @@ public class StudentServiceimpl implements StudentServiceIntr {
 	}
 
 	@Override
-	public Student getStudent(Integer roll) {	
+	public Student getStudent(Integer roll) {
 		if (!stRepo.findById(roll).isPresent()) {
 			throw new StudentException("Student is not present with given roll no. " + roll);
 		}
 		return stRepo.findById(roll).get();
 
+	}
+
+	@Override
+	public List<String> filterStudentbasedOnMarks(Integer marks) {
+
+		List<Student> listSt = stRepo.findAll();
+		List<String> stNames = new ArrayList<String>();
+
+		for (Student student : listSt) {
+			if (student.getMarks() >= marks) {
+				stNames.add(student.getName());
+			}
+		}
+		return stNames;
+	}
+
+	@Override
+	public List<String> filterStudentOnVariousPara(String name, String standard, Integer roll) {
+
+		List<Student> student = stRepo.findStudent(name, standard, roll);
+		List<String> res = new ArrayList<String>();
+		for (Student each : student) {
+			res.add(each.getName());
+		}
+		return res;
+//		return stRepo.findStudent(name, standard, city, roll);
 	}
 
 }
