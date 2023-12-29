@@ -2,7 +2,6 @@ package com.studentapp.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,14 +18,13 @@ import com.studentapp.model.Student;
 import com.studentapp.service.StudentServiceIntr;
 
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.AssertFalse;
 
 @RestController
 @RequestMapping("/student")
 public class StudentController {
 	
 	
-	private  StudentServiceIntr stService;
+	private final StudentServiceIntr stService;
 	public StudentController(StudentServiceIntr strService) {
 		this.stService = strService;
 	}

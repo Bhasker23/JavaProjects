@@ -83,8 +83,10 @@ public class StudentServiceimpl implements StudentServiceIntr {
 		for (Student each : student) {
 			res.add(each.getName());
 		}
+		if (res.isEmpty()) {
+			throw new StudentException("No Data Available for given request");
+		}
 		return res;
-//		return stRepo.findStudent(name, standard, city, roll);
 	}
 
 }
