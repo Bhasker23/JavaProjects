@@ -54,7 +54,7 @@ public class Db1Config {
 		Map<String, String> props = new HashMap<>();
 		props.put("hibernate.dialect", "org.hibernate.dialect.MySQL55Dialect");
 		props.put("hibernate.show_sql","true");
-		props.put("hibernate.hbm2ddl", "auto");
+		props.put("hibernate.hbm2ddl.auto", "update");
 		bean.setJpaPropertyMap(props);
 		bean.setPackagesToScan("com.multipleDb.db1entity");
 		return bean;

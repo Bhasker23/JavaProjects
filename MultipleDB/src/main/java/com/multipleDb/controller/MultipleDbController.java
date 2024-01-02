@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,12 +24,12 @@ public class MultipleDbController {
 	private Studentimpl studentimpl;
 	
 	@PostMapping("/addProduct")
-	public ResponseEntity<Product> addProduct(Product product){
+	public ResponseEntity<Product> addProduct(@RequestBody Product product){
 		return new ResponseEntity<Product>(productInr.addProduct(product), HttpStatus.OK);
 	}
 	
 	@PostMapping("/addStudent")
-	public ResponseEntity<Student> addStudent(Student student){
+	public ResponseEntity<Student> addStudent(@RequestBody Student student){
 		return new ResponseEntity<Student>(studentimpl.addStudent(student), HttpStatus.OK);
 	}
 }
