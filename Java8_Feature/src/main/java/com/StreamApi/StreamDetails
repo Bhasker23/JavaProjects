@@ -1,0 +1,44 @@
+Stream API -> 
+
+		Stream is a sequence of object that supports various methods which can be piplined 
+		to produce a desire result.
+		
+		1) Stream does not store data it represents data.
+		2) Only Objects are allowed.
+		3) It does not modified original data structure.
+		4) The elements of Stream only visited once in life for revisting the same element 
+		   again, new stream must be created.
+		   
+		   
+
+	**Methods in Stream** 		   
+	
+	1) Intermediate Method - This kind 0f method never gives us a final result, it always return a new stream object.
+	
+		## Commonly used intermediate methods ->  	
+		
+		[A] map() -> It returns a another stream, consisting result of given function.
+		
+		[B] filter() -> It returns a filter element stream based on the predicate condition.
+		
+		[c] sorted() -> It is used to sort the stream.
+		
+		
+		
+			
+	2) Terminal method -> This methods returns the final result of stream object and after this we can not use stream object again.
+	
+		## Commonly used intermediate methods ->  	
+		
+		
+		[A] collect() -> used to return the final result of stream object.
+		
+		[B] forEach() -> used to iterate through each element.
+		
+		[c] reduce() -> It reduce the element of stream object and gives a single value as final result.
+		
+		     
+	
+	
+	
+	
