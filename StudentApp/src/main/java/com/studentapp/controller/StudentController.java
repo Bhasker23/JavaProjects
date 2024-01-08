@@ -18,56 +18,53 @@ import com.studentapp.model.Student;
 import com.studentapp.service.StudentServiceIntr;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/student")
+@RequiredArgsConstructor
 public class StudentController {
-	
-	
+
 	private final StudentServiceIntr stService;
-	public StudentController(StudentServiceIntr strService) {
-		this.stService = strService;
-	}
-	
+
 	@PostMapping("/addStudent")
-	public ResponseEntity<Student>  addStudent(@Valid @RequestBody Student student) {
-		
-		
+	public ResponseEntity<Student> addStudent(@Valid @RequestBody Student student) {
 		return new ResponseEntity<Student>(stService.addStudent(student), HttpStatus.CREATED);
-		
 	}
-	
+
 	@GetMapping("/getStudents")
 	public ResponseEntity<List<Student>> getStudents() {
-		
-		return new ResponseEntity<List<Student>> (stService.getStudents(), HttpStatus.OK);
+
+		return new ResponseEntity<List<Student>>(stService.getStudents(), HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/getStudent/{roll}")
 	public ResponseEntity<Student> getStudent(@PathVariable Integer roll) {
-		
-		return new ResponseEntity<Student> (stService.getStudent(roll), HttpStatus.OK);
+
+		return new ResponseEntity<Student>(stService.getStudent(roll), HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("/deleteStudent/{roll}")
-	public ResponseEntity<String> deleteStudent(@PathVariable Integer roll){
-		
-		return new ResponseEntity<String> (stService.deleteStudent(roll), HttpStatus.OK);
+	public ResponseEntity<String> deleteStudent(@PathVariable Integer roll) {
+
+		return new ResponseEntity<String>(stService.deleteStudent(roll), HttpStatus.OK);
 	}
-	
+
 	@PutMapping("/updateStudent/{marks}")
-	public ResponseEntity<Student> updatedStudent(@RequestParam Integer roll, @PathVariable Integer marks){
+	public ResponseEntity<Student> updatedStudent(@RequestParam Integer roll, @PathVariable Integer marks) {
 		return new ResponseEntity<Student>(stService.updateStudent(roll, marks), HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/filterStudent")
-	public ResponseEntity<List<String>> filterStudent(Integer marks){
-		return new ResponseEntity<List<String>> (stService.filterStudentbasedOnMarks(marks), HttpStatus.OK);
+	public ResponseEntity<List<String>> filterStudent(Integer marks) {
+		return new ResponseEntity<List<String>>(stService.filterStudentbasedOnMarks(marks), HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/filterOnParameter")
-	public ResponseEntity<List<String>> getMethodName(@RequestParam(required = false) String name, @RequestParam(required = false) String standard , @RequestParam(required = false) Integer roll) {
-		return new ResponseEntity<List<String>>(stService.filterStudentOnVariousPara(name, standard, roll), HttpStatus.OK);
+	public ResponseEntity<List<String>> getMethodName(@RequestParam(required = false) String name,
+			@RequestParam(required = false) String standard, @RequestParam(required = false) Integer roll) {
+		return new ResponseEntity<List<String>>(stService.filterStudentOnVariousPara(name, standard, roll),
+				HttpStatus.OK);
 	}
-	
+
 }

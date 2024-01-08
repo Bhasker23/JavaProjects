@@ -6,9 +6,9 @@ import lombok.Data;
 
 @Data
 public class ExceptionDetails {
-	
+
 	private String message;
 	private String desc;
 	private LocalDateTime date;
-	
+
 }

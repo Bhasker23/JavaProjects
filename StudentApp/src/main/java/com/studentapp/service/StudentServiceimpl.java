@@ -33,7 +33,8 @@ public class StudentServiceimpl implements StudentServiceIntr {
 
 	@Override
 	public String deleteStudent(Integer roll) {
-		if (!stRepo.findById(roll).isPresent()) {
+		if (!stRepo.existsById(roll)) {
+			System.out.println(String.format("data deleted with id {}", roll));
 			throw new StudentException("Student is not present with given roll no. " + roll);
 		}
 		stRepo.deleteById(roll);
