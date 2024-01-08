@@ -2,6 +2,9 @@ package com.functionalInterface;
 
 public class StudentFunctionalTest {
 
+	void printHello(int a) {
+		System.out.println("hello");
+	}
 	public static void main(String[] args) {
 		
 		StudentFunctionalInterface intr = s -> {
@@ -11,5 +14,7 @@ public class StudentFunctionalTest {
 		};
 		
 		intr.printDetails(new Student(1, "Sumit", 780));
+		
+		
 	}
 }

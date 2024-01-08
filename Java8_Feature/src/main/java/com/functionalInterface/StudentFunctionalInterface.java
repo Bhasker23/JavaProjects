@@ -4,5 +4,5 @@ package com.functionalInterface;
 public interface StudentFunctionalInterface {
 
 	void printDetails(Student student);
-	
+
 }
