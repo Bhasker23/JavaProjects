@@ -20,7 +20,6 @@ public class StreamDemo {
 		list.add(new Student(4, "Shyam", 880));
 
 		Collections.sort(list, new MarksComapre());
-//		System.out.println(list);
 //		System.out.println(list.get(2));
 
 		int topNumber = 2;
