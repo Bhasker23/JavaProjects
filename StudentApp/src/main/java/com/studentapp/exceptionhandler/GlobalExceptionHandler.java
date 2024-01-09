@@ -16,7 +16,7 @@ import org.springframework.web.context.request.WebRequest;
 public class GlobalExceptionHandler {
 
 	@ExceptionHandler(StudentException.class)
-	public ResponseEntity<ExceptionDetails> StudentException(StudentException studentException, WebRequest wr){
+	public ResponseEntity<ExceptionDetails> studentExceptionHandle(StudentException studentException, WebRequest wr){
 		
 		ExceptionDetails ex = new ExceptionDetails();
 		ex.setMessage(studentException.getMessage());
@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleMethodArgsNotValidException(MethodArgumentNotValidException ex)
     {
-        Map<String, String> respMap=new HashMap<String, String>();
+        Map<String, String> respMap=new HashMap<>();
         ex.getBindingResult().getAllErrors().forEach(error->{
             String field= ((FieldError)error).getField();
             
@@ -41,7 +41,7 @@ public class GlobalExceptionHandler {
             
         });
         
-        return new ResponseEntity<Map<String,String>>(respMap,HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(respMap,HttpStatus.BAD_REQUEST);
         
     }
 

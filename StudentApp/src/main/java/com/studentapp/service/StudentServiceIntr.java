@@ -17,7 +17,7 @@ public interface StudentServiceIntr {
 	
 	String deleteStudent(Integer roll);
 	
-	Student updateStudent(Integer roll, Integer revisedMarks);
+	String updateStudent(Integer roll, Integer revisedMarks);
 	
 	List<String> filterStudentbasedOnMarks(Integer marks);
 	
